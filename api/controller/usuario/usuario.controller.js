@@ -30,7 +30,7 @@ exports.editarUsuario = async (req, res) => {
 }
 exports.buscarUsuario = async (req, res) => {
     try {
-        const { email } = req.params.email
+        const { email } = req.query
         let usuario = await UsuarioModel.findOne({ email })
         res.status(200).send({ data: usuario, message: 'OK' })
     } catch (error) {
