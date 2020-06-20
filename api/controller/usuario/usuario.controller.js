@@ -27,12 +27,12 @@ exports.editarUsuario = async (req, res) => {
     } catch (error) {
         res.status(500).send({ data: error, message: 'Erro ao editar usuário. Verifique as informações e tente novamente.' })
     }
-
+}
 exports.buscarUsuario = async (req, res) => {
     if (isEmptyObject(req.body)) {
         res.status(400).send({ data: null, message: 'Requisicão inválida. Verifique as informações e tente novamente.' })
     }
-    
+
     try {
         const { email } = req.params.email
         let usuario = await UsuarioModel.findOne({ email })
@@ -40,5 +40,4 @@ exports.buscarUsuario = async (req, res) => {
     } catch (error) {
         res.status(500).send({ data: error, message: 'Erro ao editar usuário. Verifique as informações e tente novamente.' })
     }
-} 
 }
