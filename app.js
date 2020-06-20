@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://corona-api:123@cluster0-zjpdm.mongodb.net/<dbname>?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://corona-api:123@cluster0-zjpdm.mongodb.net/turismo?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
@@ -28,4 +28,3 @@ const rotaUsuario = require('./api/route/usuario/usuario.route')
 app.use('/usuario', rotaUsuario);
 
 module.exports = app;
-
