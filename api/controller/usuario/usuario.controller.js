@@ -38,14 +38,10 @@ exports.buscarUsuario = async (req, res) => {
     }
 }
 exports.removerUsuario = async (req, res) => {
-    if (isEmptyObject(req.body)) {
-        res.status(400).send({ data: null, message: 'Requisicão inválida. Verifique as informações e tente novamente.' })
-    }
-
     try {
-        const { email } = req.body
-        let usuarioRemovido = await UsuarioModel.findOneAndRemove({ email }, req.body)
-        res.status(200).send({ data: usuarioRemovido, message: 'Usuário Removido.' })
+        const { email } = req.params
+        await UsuarioModel.remove({ email })
+        res.status(200).send({ data: null, message: 'Usuário Removido.' })
     } catch (error) {
         res.status(500).send({ data: error, message: 'Erro ao remover usuário. Verifique as informações e tente novamente.' })
     }
