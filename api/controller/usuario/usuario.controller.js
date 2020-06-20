@@ -37,3 +37,16 @@ exports.buscarUsuario = async (req, res) => {
         res.status(500).send({ data: error, message: 'Erro ao buscar usuário. Verifique as informações e tente novamente.' })
     }
 }
+exports.removerUsuario = async (req, res) => {
+    if (isEmptyObject(req.body)) {
+        res.status(400).send({ data: null, message: 'Requisicão inválida. Verifique as informações e tente novamente.' })
+    }
+
+    try {
+        const { email } = req.body
+        let usuarioRemovido = await UsuarioModel.findOneAndRemove({ email }, req.body)
+        res.status(200).send({ data: usuarioRemovido, message: 'Usuário Removido.' })
+    } catch (error) {
+        res.status(500).send({ data: error, message: 'Erro ao remover usuário. Verifique as informações e tente novamente.' })
+    }
+}
