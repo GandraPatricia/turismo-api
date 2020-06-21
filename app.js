@@ -21,7 +21,9 @@ app.use((req, res, next) => {
 });
 
 const rotaUsuario = require('./api/route/usuario/usuario.route')
+const rotaFeed = require('./api/route/feed/feed.route')
 
 app.use('/usuario', rotaUsuario);
+app.use('/avaliação',rotaFeed);
 
 module.exports = app;

@@ -7,8 +7,9 @@ exports.adicionarComentario = async (req, res) => {
     }
 
     try {
-        const  {email} = req.params
-        var comentarioCriado = await feed.save()
+        const {email} = req.params
+        var comentario = new feedModel(req.body)
+        {email} await comentario.save()
         res.status(201).send({ data: usuarioCriado, message: 'comentario criado.' })
     } catch (error) {
         res.status(500).send({ data: null, message: error })
