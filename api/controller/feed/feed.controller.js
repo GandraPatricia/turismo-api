@@ -23,3 +23,16 @@ exports.removerComentario = async (req, res) => {
         res.status(500).send({ data: error, message: 'Erro ao remover comentario. Verifique as informações e tente novamente.' })
     }
 }
+exports.editarComentario = async (req, res) => {
+    if (isEmptyObject(req.body)) {
+        res.status(400).send({ data: null, message: 'Requisicão inválida. Verifique as informações e tente novamente.' })
+    }
+
+    try {
+        const { id } = req.body
+        let comentarioAtualizado = await feedModel.findOneAndUpdate({_id:id }, req.body)
+        res.status(200).send({ data: comentarioAtualizado, message: 'Comentario atualizado.' })
+    } catch (error) {
+        res.status(500).send({ data: error, message: 'Erro ao editar usuário. Verifique as informações e tente novamente.' })
+    }
+}
