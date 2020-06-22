@@ -14,3 +14,12 @@ exports.adicionarComentario = async (req, res) => {
         res.status(500).send({ data: null, message: error })
     }
 }
+exports.removerComentario = async (req, res) => {
+    try {
+        const id = req.params.id
+         await feedModel.remove({_id:id})
+        res.status(200).send({ data: null, message: 'Comentario Removido.' })
+    } catch (error) {
+        res.status(500).send({ data: error, message: 'Erro ao remover comentario. Verifique as informações e tente novamente.' })
+    }
+}

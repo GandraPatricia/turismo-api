@@ -2,6 +2,16 @@ const mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 const feedSchema = new Schema({
+    usuario:{
+        type:String,
+        trim:true,
+        required:true
+    },
+    comentantario:{
+        type:String,
+        trim:true,
+        required:true
+    },
     Imagem:{
         type: String,
         trim: true,
