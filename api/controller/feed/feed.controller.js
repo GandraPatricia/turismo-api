@@ -29,7 +29,7 @@ exports.editarComentario = async (req, res) => {
     }
 
     try {
-        const { id } = req.body
+        const { id } = req.params
         let comentarioAtualizado = await feedModel.findOneAndUpdate({_id:id }, req.body)
         res.status(200).send({ data: comentarioAtualizado, message: 'Comentario atualizado.' })
     } catch (error) {
