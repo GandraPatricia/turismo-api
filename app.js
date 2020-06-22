@@ -24,6 +24,6 @@ const rotaUsuario = require('./api/route/usuario/usuario.route')
 const rotaFeed = require('./api/route/feed/feed.route')
 
 app.use('/usuario', rotaUsuario);
-app.use('/avaliação',rotaFeed);
+app.use('/comentario',rotaFeed);
 
 module.exports = app;

@@ -2,15 +2,25 @@ const mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 const feedSchema = new Schema({
-    comentario:{
+    Imagem:{
         type: String,
-        required: true,
-        trim: true
+        trim: true,
+        required: true
     },
-    nota:{
+    idLocal:{
         type: Number,
+        trim: true,
+        required: true
+    },
+    latitude:{
+        type: String,
+        trim: true,
+        required: true
+    },
+    longitude:{
+        type: String,
+        trim: true,
         required: true,
-        trim: true
     }
 }, { versionKey: false })
 
