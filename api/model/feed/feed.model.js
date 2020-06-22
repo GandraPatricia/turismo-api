@@ -7,7 +7,7 @@ const feedSchema = new Schema({
         trim:true,
         required:true
     },
-    comentantario:{
+    comentario:{
         type:String,
         trim:true,
         required:true
