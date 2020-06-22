@@ -16,8 +16,8 @@ exports.adicionarComentario = async (req, res) => {
 }
 exports.buscarComentario = async (req, res) => {
     try {
-        const  id  = req.query
-        let comentario = await feedModel.findOne({_id:id})
+        const  id  = req.params.id
+        let comentario = await feedModel.findOne( { _id: id } )
         res.status(200).send({ data: comentario, message: 'OK' })
     } catch (error) {
         res.status(500).send({ data: error, message: 'Erro ao buscar comentário. Verifique as informações e tente novamente.' })
